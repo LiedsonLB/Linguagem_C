@@ -2,6 +2,7 @@
 #include "aluno.h"
 
 int main() {
+    
     ListaAlunos lista = criarLista();
     
     Aluno aluno1 = {1, "Jorge"};
