@@ -1,6 +1,3 @@
-#ifndef ALUNO_H
-#define ALUNO_H
-
 #define MAX_ALUNOS 10
 
 typedef struct {
@@ -19,5 +16,3 @@ int inserirNaPosicao(ListaAlunos *lista, Aluno aluno, int posicao);
 int removerNaPosicao(ListaAlunos *lista, int posicao);
 int removerPorMatricula(ListaAlunos *lista, int matricula);
 Aluno buscarPorMatricula(ListaAlunos lista, int matricula);
-
-#endif

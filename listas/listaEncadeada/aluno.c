@@ -11,7 +11,6 @@ TLista* criarLista(){
     novaLista->fim = NULL;
     return novaLista; // retorno a lista criada
 }
-
 void inserirInicio(TLista* lista, Taluno aluno){
     TNo* novo = (TNo*)malloc(sizeof(TNo)); // aqui eu aloco memoria para criar um novo No de Aluno
     novo->aluno = aluno; // aqui eu repasso a informação de de aluno para um novo aluno
@@ -22,6 +21,60 @@ void inserirInicio(TLista* lista, Taluno aluno){
         novo->next = lista->prim; // o proximo do elemento novo é o primeiro que estava na lista
         lista->prim = novo; // o primeiro da lista agora é o novo
     }
+}
+void inserirFinal(TLista* lista, Taluno aluno){
+    TNo* novoNo = (TNo*)malloc(sizeof(TNo));
+    novoNo->aluno = aluno;
+    if(lista->prim == NULL){
+        lista->prim = novoNo;
+        lista->fim = novoNo;
+        novoNo->next = NULL;
+    } else {
+        TNo* lastNo = lista->prim;
+        while(lastNo->next != NULL) {
+            lastNo = lastNo->next;
+        };
+        lastNo->next = novoNo;
+        novoNo->next = NULL;
+        lista->fim = novoNo;
+    }
+}
+void removerMatricula(TLista* lista, int matricula) {
+    if (lista->prim == NULL) {
+        // A lista está vazia, não tem nada para remover.
+        return;
+    }
+
+    TNo* noAnterior = NULL; // Para acompanhar o nó anterior ao nó que estamos verificando.
+    TNo* noAtual = lista->prim; // Começa pelo primeiro nó da lista.
+
+    // Percorre a lista até encontrar o nó com a matrícula desejada ou chegar ao final da lista.
+    while (noAtual != NULL && noAtual->aluno.matricula != matricula) {
+        noAnterior = noAtual;
+        noAtual = noAtual->next;
+    }
+
+    if (noAtual == NULL) {
+        // Não encontrou um nó com a matrícula desejada não tem nada para remover.
+        return;
+    }
+
+    // Remoção do nó encontrado.
+    if (noAnterior == NULL) {
+        // O nó a ser removido é o primeiro da lista.
+        lista->prim = noAtual->next;
+    } else {
+        // O nó a ser removido não é o primeiro da lista.
+        noAnterior->next = noAtual->next;
+    }
+
+    // Se o nó removido também for o último nó da lista atualiza lista->fim.
+    if (noAtual == lista->fim) {
+        lista->fim = noAnterior;
+    }
+
+    // Libera a memória alocada para o nó que foi removido.
+    free(noAtual);
 }
 void imprimirLista(TLista lista){
     TNo* noAtual = lista.prim; // o atual começa como primeiro nó da lista
