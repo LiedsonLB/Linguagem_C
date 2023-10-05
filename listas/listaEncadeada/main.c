@@ -14,6 +14,7 @@ int main() {
     aluno.notas[2] = 8;
 
     inserirInicio(lista, aluno);
+    removerFinal(lista);
     imprimirLista(*lista);
 
     return 0;

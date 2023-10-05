@@ -27,3 +27,4 @@ TLista* criarLista();
 void inserirInicio(TLista* lista, Taluno aluno);
 void inserirFinal(TLista* lista, Taluno aluno);
 void imprimirLista(TLista lista);
+void removerFinal(TLista* lista);

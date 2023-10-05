@@ -30,14 +30,32 @@ void inserirFinal(TLista* lista, Taluno aluno){
         lista->fim = novoNo;
         novoNo->next = NULL;
     } else {
-        TNo* lastNo = lista->prim;
-        while(lastNo->next != NULL) {
-            lastNo = lastNo->next;
-        };
-        lastNo->next = novoNo;
+        lista->fim->next = novoNo;
         novoNo->next = NULL;
         lista->fim = novoNo;
     }
+}
+void removerFinal(TLista* lista){
+    TNo* noRemove = lista->prim;
+    TNo* ant;
+    
+    if(lista->prim == NULL){
+        return;
+    }
+
+    while(noRemove->next != NULL)
+    {
+        ant = noRemove;
+        noRemove = noRemove->next;
+    }
+    if(ant = NULL){
+        lista->prim = NULL;
+        lista->fim = NULL;
+        free(noRemove);
+    }
+    ant->next = NULL;
+    lista->fim = ant;
+    free(noRemove);
 }
 void removerMatricula(TLista* lista, int matricula) {
     if (lista->prim == NULL) {
