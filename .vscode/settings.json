@@ -1,5 +1,33 @@
 {
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
-    ]
+    ],
+    "files.associations": {
+        "array": "c",
+        "atomic": "c",
+        "bit": "c",
+        "*.tcc": "c",
+        "concepts": "c",
+        "cstddef": "c",
+        "cstdio": "c",
+        "cwchar": "c",
+        "deque": "c",
+        "vector": "c",
+        "functional": "c",
+        "memory": "c",
+        "memory_resource": "c",
+        "optional": "c",
+        "string_view": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "random": "c",
+        "initializer_list": "c",
+        "istream": "c",
+        "new": "c",
+        "stdexcept": "c",
+        "system_error": "c",
+        "typeinfo": "c",
+        "algorithm": "c",
+        "stdio.h": "c"
+    }
 }

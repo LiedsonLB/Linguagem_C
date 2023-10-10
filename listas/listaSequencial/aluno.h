@@ -12,6 +12,7 @@ typedef struct {
 
 ListaAlunos criarLista();
 int inserirNoFim(ListaAlunos *lista, Aluno aluno);
+int inserirNoInicio(ListaAlunos *lista, Aluno aluno);
 int inserirNaPosicao(ListaAlunos *lista, Aluno aluno, int posicao);
 int removerNaPosicao(ListaAlunos *lista, int posicao);
 int removerPorMatricula(ListaAlunos *lista, int matricula);

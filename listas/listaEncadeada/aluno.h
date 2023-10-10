@@ -12,18 +12,19 @@ typedef struct {
 /* Estrutura da lista de aluno que recebe aluno e as posições de primeiro e ultimo */
 typedef struct {
     Taluno aluno;
-    struct No* prim;
-    struct No* fim;
+    TNo* prim;
+    TNo* fim;
 } TLista;
 
 /* Crio o No que guarda o ponteiro do aluno e próximo aluno */
 typedef struct No {
     Taluno aluno;
-    struct No* next;
+    TNo* next;
 } TNo;
 
 /* Funções */
 TLista* criarLista();
 void inserirInicio(TLista* lista, Taluno aluno);
 void inserirFinal(TLista* lista, Taluno aluno);
+void removerFinal(TLista* lista);
 void imprimirLista(TLista lista);

@@ -30,14 +30,32 @@ void inserirFinal(TLista* lista, Taluno aluno){
         lista->fim = novoNo;
         novoNo->next = NULL;
     } else {
-        TNo* lastNo = lista->prim;
-        while(lastNo->next != NULL) {
-            lastNo = lastNo->next;
-        };
-        lastNo->next = novoNo;
+        lista->fim->next = novoNo;
         novoNo->next = NULL;
         lista->fim = novoNo;
     }
+}
+void removerFinal(TLista* lista){
+    TNo* noRemove = lista->prim;
+    TNo* ant;
+    
+    if(lista->prim == NULL){
+        return;
+    }
+
+    while(noRemove->next != NULL)
+    {
+        ant = noRemove;
+        noRemove = noRemove->next;
+    }
+    if(ant == NULL){
+        lista->prim = NULL;
+        lista->fim = NULL;
+        free(noRemove);
+    }
+    ant->next = NULL;
+    lista->fim = ant;
+    free(noRemove);
 }
 void removerMatricula(TLista* lista, int matricula) {
     if (lista->prim == NULL) {
@@ -53,6 +71,9 @@ void removerMatricula(TLista* lista, int matricula) {
         noAnterior = noAtual;
         noAtual = noAtual->next;
     }
+
+    // V + F = V
+    // V . F = F
 
     if (noAtual == NULL) {
         // Não encontrou um nó com a matrícula desejada não tem nada para remover.
@@ -79,7 +100,7 @@ void removerMatricula(TLista* lista, int matricula) {
 void imprimirLista(TLista lista){
     TNo* noAtual = lista.prim; // o atual começa como primeiro nó da lista
 
-    while (noAtual != NULL) { // Percorra a lista até que o ultimo nó da lista atual seja NULL
+    while (noAtual->next != NULL) { // Percorra a lista até que o ultimo nó da lista atual seja NULL
         /* Imprime as informações */
         printf("Matricula: %d\n", noAtual->aluno.matricula);
         printf("Nome: %s\n", noAtual->aluno.nome);
