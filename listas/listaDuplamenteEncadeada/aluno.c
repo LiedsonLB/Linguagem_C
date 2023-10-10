@@ -9,7 +9,7 @@ Lista* criarLista(){
     novaLista->fim = NULL;
     return novaLista;
 };
-void inserirInicio(Lista* lista, Aluno aluno){
+void inserirInicio(Lista* lista, Aluno aluno) {
     No* novoNo = (No*)malloc(sizeof(No));
     novoNo->aluno = aluno;
     if(lista->prim == NULL){
