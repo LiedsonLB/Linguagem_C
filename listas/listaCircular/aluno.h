@@ -2,29 +2,26 @@
 #include <stdlib.h>
 
 typedef struct {
-    char aluno[30];
+    char nome[30];
     int matricula;
     float notas[3];  
 } Aluno;
 
 typedef struct {
-    no* prim;
+    Aluno aluno;
+    struct no* prim;
 } Lista;
 
-typedef struct no
-{
+typedef struct no {
     Aluno aluno;
-    no* prox;
+    struct no* prox;
 } No;
 
-No criarNo(Aluno aluno){
-    No* newNode = (No*) malloc(sizeof(No));
-    if(newNode == NULL){
-        printf("Erro de memoria");
-        exit(1);
-    }
-    newNode->aluno = aluno;
-    newNode->prox = NULL;
-    return newNode;
-};
-
+Lista* criarLista();
+void inserirInicio(Lista* lista, Aluno aluno);
+void inserirPosicao(Lista* lista, Aluno aluno, int position);
+void inserirFinal(Lista* lista, Aluno aluno);
+void removerInicio(Lista* lista);
+void removerPosicao(Lista* lista, int position);
+void removerFinal(Lista* lista);
+void imprimirLista(Lista* lista);

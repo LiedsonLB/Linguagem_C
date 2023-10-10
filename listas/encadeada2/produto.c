@@ -44,7 +44,6 @@ void inserirPosicao(Lista* lista, Produto produto, int position){
         aux = aux->prox;
     }
 }
-
 void removerInicio(Lista* lista) {
     if (lista->prim == NULL) {
         printf("A lista esta vazia\n");
@@ -55,7 +54,6 @@ void removerInicio(Lista* lista) {
     free(primeiroNo);
     printf("Elemento removido do início da lista\n");
 }
-
 void removeFinal(Lista* lista) {
     if (lista->prim == NULL) {
         printf("A lista esta vazia\n");
@@ -78,7 +76,6 @@ void removeFinal(Lista* lista) {
     free(noAtual);
     printf("Elemento removido do final da lista\n");
 }
-
 void removerPosicao(Lista* lista, int position) {
     if (lista->prim == NULL) {
         printf("A lista esta vazia\n");
@@ -114,7 +111,6 @@ void removerPosicao(Lista* lista, int position) {
     free(noAtual);
     printf("Elemento removido da posição %d\n", position);
 }
-
 void imprimirLista(Lista lista){
     No* noAtual = lista.prim;
 
@@ -126,7 +122,6 @@ void imprimirLista(Lista lista){
         noAtual = noAtual->prox;
     }
 }
-
 void tamanhoLista(Lista lista){
     No* contador = lista.prim;
     int numElementos = 0;
@@ -138,7 +133,6 @@ void tamanhoLista(Lista lista){
     }
     return printf("A lista tem %d", numElementos);
 }
-
 void inverterLista(Lista* lista) {
     No* prev = NULL;
     No* current = lista->prim;
@@ -153,7 +147,6 @@ void inverterLista(Lista* lista) {
 
     lista->prim = prev;
 }
-
 void listaImpar(Lista* lista) {
     Lista lista2 = criarLista();
     No* aux = lista->prim;

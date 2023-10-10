@@ -10,17 +10,19 @@ typedef struct {
 
 typedef struct {
     Aluno aluno;
-    struct no* prim;
-    struct no* fim;
+    No* prim;
+    No* fim;
 } Lista;
 
 typedef struct no {
     Aluno aluno;
-    struct no* ant;
-    struct no* prox;
+    No* ant;
+    No* prox;
 } No;
 
 Lista* criarLista();
 void inserirInicio(Lista *lista, Aluno aluno);
 void inserirFinal(Lista *lista, Aluno aluno);
+void combinarListas(Lista* A, Lista* B);
+void inversoLista(Lista lista);
 void imprimirLista(Lista lista);

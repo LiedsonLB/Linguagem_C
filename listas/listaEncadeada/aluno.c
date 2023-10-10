@@ -48,7 +48,7 @@ void removerFinal(TLista* lista){
         ant = noRemove;
         noRemove = noRemove->next;
     }
-    if(ant = NULL){
+    if(ant == NULL){
         lista->prim = NULL;
         lista->fim = NULL;
         free(noRemove);
@@ -71,6 +71,9 @@ void removerMatricula(TLista* lista, int matricula) {
         noAnterior = noAtual;
         noAtual = noAtual->next;
     }
+
+    // V + F = V
+    // V . F = F
 
     if (noAtual == NULL) {
         // Não encontrou um nó com a matrícula desejada não tem nada para remover.
@@ -97,7 +100,7 @@ void removerMatricula(TLista* lista, int matricula) {
 void imprimirLista(TLista lista){
     TNo* noAtual = lista.prim; // o atual começa como primeiro nó da lista
 
-    while (noAtual != NULL) { // Percorra a lista até que o ultimo nó da lista atual seja NULL
+    while (noAtual->next != NULL) { // Percorra a lista até que o ultimo nó da lista atual seja NULL
         /* Imprime as informações */
         printf("Matricula: %d\n", noAtual->aluno.matricula);
         printf("Nome: %s\n", noAtual->aluno.nome);

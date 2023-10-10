@@ -26,6 +26,8 @@
         "new": "c",
         "stdexcept": "c",
         "system_error": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "algorithm": "c",
+        "stdio.h": "c"
     }
 }
